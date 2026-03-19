@@ -50,7 +50,7 @@ public class OrderService {
         order.setStatus(OrderStatus.WAITING_PAYMENT);
 
         User user = userService.authenticate();
-        order.setClient(order.getClient());
+        order.setClient(user);
 
         for (OrderItemDTO item : dto.getItems()) {
             Product product = productRepository.getReferenceById(item.getId());
